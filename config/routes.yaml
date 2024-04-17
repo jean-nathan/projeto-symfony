@@ -1,0 +1,12 @@
+# Comentários da aula 3
+
+# index:
+#   path: /
+#   controller: App\Controller\MamiferoController::homepage # O nome do controller é uma combinação com namespace onde fica o controller,  depois o nome do controller, mais o nome da classe no final que é a action que precisa bater com nome da classe
+
+# A rota que é o PATH, invoca a controller Mamifero, e dentro dele a Action homepage.
+
+
+# Rota: As rotas são os caminhos por onde nossa URLs passam.
+
+# Controllers: Os controllers são as classes onde definimos o comportamento do nosso aplicativo.

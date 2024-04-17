@@ -1,0 +1,13 @@
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/ 
+/vendor/
+###< symfony/framework-bundle ###
+
+## a pasta var guarda o cache e log e não convém ficar versionando.
+## a pasta vendor guarda os arquivos de terceiros, as coisas que instalamos em nosso projeto.
