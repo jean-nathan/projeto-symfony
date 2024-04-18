@@ -8,6 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MamiferoController
 {
 
+    # annotation @Route é usada para indicar que a action homepage deve responder a requisições feitas para a URL /
+    # Existem outros usos do annotation como Configuração de Segurança com  @IsGranted, Validação de Formulários com @Assert\NotBlank e @Assert\Email
+
     /**
      * @Route("/")
      */
