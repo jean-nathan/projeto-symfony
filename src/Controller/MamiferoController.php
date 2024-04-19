@@ -1,11 +1,13 @@
 <?php
 # Comentários da aula 5 -> https://www.youtube.com/watch?v=WRFXvoUMDJo&list=PLo8hZ_ZoCjDGpvWcsWkTnWghIdPTjmA6Z&index=4&ab_channel=PoliCast
+# Comentários da aula 9 -> Action, array, renderização do twig -> https://www.youtube.com/watch?v=HvoF6dw4qEM&list=PLo8hZ_ZoCjDGpvWcsWkTnWghIdPTjmA6Z&index=9&ab_channel=PoliCast
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MamiferoController
+class MamiferoController extends AbstractController
 {
 
     # annotation @Route é usada para indicar que a action homepage deve responder a requisições feitas para a URL /
@@ -24,13 +26,26 @@ class MamiferoController
      * @Route("/mamifero/{slug}")
      */
 
-    public function show($slug)
+    #Uma "action" (metodo show()) é um método dentro de um controlador que é associado a uma rota específica. Quando uma requisição é feita para essa rota, o framework invoca a action correspondente para lidar com a requisição.
+
+    # Em frameworks como o Symfony, cada action em um controlador é responsável por realizar uma tarefa específica, como processar dados, interagir com o modelo (model) da aplicação e renderizar uma resposta.
+
+    public function show($slug) ## Manter coerencia, toda vez que eu tiver uma action dentro de um controller, o template que ela vai render precisa ter o mesmo nome que ela;
     {   
-        return new Response(
-            sprintf(
-                'Está é a página de detalhe do Mamífero "%s" ',
-                ucwords(str_replace('-', ' ', $slug))
-            ));
+        $respostas = [
+            'Está a primeira resposta',
+            'Está a segunda resposta',
+            'Está a terceira resposta',
+            'Está a quarta resposta',
+            'Está a quinta resposta'
+        ];
+        
+        ## Arquivo show.html.twig está sendo carregado no controller através render e devolvido para o browser.
+        return $this->render('mamiferos/show.html.twig', [ 
+        ## Array de valores (variaveis) que podem vir do banco ou algum processo executado na controller
+        'animal' => ucwords(str_replace('-', ' ', $slug)),
+        'respostas' => $respostas
+        ]);
     }
 }
 

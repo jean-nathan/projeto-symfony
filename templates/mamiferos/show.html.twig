@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Mamífero {{ animal }}! {% endblock %}
+
+{% block body %}
+    <h1>Mamifero</h1>
+    Está é a página de detalhes do mamífero {{ animal }}.
+
+    {# Comentário do Twig - Ao inspecionar no browser ele não mostrará igual ao comentário do HTML #} 
+
+    {% if animal == "Gato" %}
+        <br>
+        Nossa, um <strong>Gato</strong>!
+    {% endif %} 
+
+    <ul>
+    {% for resposta in respostas %}
+
+        <li>
+        {{ resposta }}
+        </li>
+        
+    {% endfor %}
+    </ul>
+
+    {% if respostas | length > 2 %}
+        <h2> Mais respostas </respostas>
+    {% endif %}
+
+    {{ "now"|date("F jS \\a\\t g:ia") }}
+
+
+{% endblock %}
