@@ -6,6 +6,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 class MamiferoController extends AbstractController
 {
@@ -14,12 +15,17 @@ class MamiferoController extends AbstractController
     # Existem outros usos do annotation como Configuração de Segurança com  @IsGranted, Validação de Formulários com @Assert\NotBlank e @Assert\Email
 
     /**
-     * @Route("/")
+     * @Route("/", name="app_home_page")
      */
 
-    public function homepage()
-    {
-        return new Response('Zoológico');
+    public function homepage() // Environment $twigEnvironment
+    {   
+        /* versão extendida
+        $html = $twigEnvironment->render('mamiferos/homepage.html.twig');
+            return new response($html);  
+        */ 
+
+    return $this->render('mamiferos/homepage.html.twig');
     }
 
     /**
@@ -39,6 +45,8 @@ class MamiferoController extends AbstractController
             'Está a quarta resposta',
             'Está a quinta resposta'
         ];
+
+        dump($respostas);
         
         ## Arquivo show.html.twig está sendo carregado no controller através render e devolvido para o browser.
         return $this->render('mamiferos/show.html.twig', [ 

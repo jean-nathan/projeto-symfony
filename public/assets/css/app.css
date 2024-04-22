@@ -1,0 +1,12 @@
+h1 {
+color: #b34f03 !important;
+}
+
+.carousel-item{
+    background-color: black;
+}
+
+.carousel-item img{
+    height: auto;
+    opacity: 0.3;
+}
